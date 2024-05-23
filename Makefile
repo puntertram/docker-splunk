@@ -45,7 +45,8 @@ endif
 
 .PHONY: tests interactive_tutorials
 
-all: splunk uf splunk-py23 uf-py23
+# all: splunk uf splunk-py23 uf-py23
+all: splunk
 
 ansible:
 	@if [ -d "splunk-ansible" ]; then \
@@ -157,7 +158,8 @@ bare-redhat-8: base-redhat-8
 		--target bare -t bare-redhat-8:${IMAGE_VERSION} .
 
 ##### Splunk images #####
-splunk: ansible splunk-debian-9 splunk-debian-10 splunk-centos-7 splunk-centos-8 splunk-redhat-8
+# splunk: ansible splunk-debian-9 splunk-debian-10 splunk-centos-7 splunk-centos-8 splunk-redhat-8
+splunk: ansible splunk-debian-10
 
 splunk-debian-9: base-debian-9 ansible
 	docker build ${DOCKER_BUILD_FLAGS} \
